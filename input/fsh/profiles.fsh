@@ -174,8 +174,20 @@ Description: "Example of a Practitioner Profile"
 * active ^short = "Indica se o profissional se encontra ativo ou inativo"
 
 * address.extension contains 
-    address-nuts named address-nuts 0..1 MS
-    
+    address-nuts named address-nuts 0..1 MS and
+    geolocation named geolocation 0..1 MS and
+    parish named parish 0..1 MS and
+    country named country 0..1 MS and 
+    municipality named municipality 0..1 MS and 
+    address-type named address-type 0..1 MS
+
+* telecom.extension contains
+    indicative named indicative 0..1 MS 
+
+* extension contains
+    inactive-practitioner named inactive-practitioner 0..1 MS and
+    nationality-practitioner named nationality-practitioner 0..1 MS 
+
 * qualification 1..1 MS
 * qualification.code 1..1 MS
 * qualification.extension contains 
