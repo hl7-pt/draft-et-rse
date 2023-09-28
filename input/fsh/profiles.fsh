@@ -80,7 +80,8 @@ Title:    "proficiency"
 Description: "proficiency"
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/proficiency"
 * value[x] only CodeableConcept
-
+* ^context[+].type = #element
+* ^context[=].expression = "Practitioner.communication"
 
 Extension: qualification
 Id:        qualification
@@ -143,5 +144,3 @@ Description: "Example of a Practitioner Profile"
 * qualification 1..1 MS
 * qualification.code 1..1 MS
 
-* communication.extension contains
-    proficiency 0..1 MS 
