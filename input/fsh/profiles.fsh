@@ -73,6 +73,11 @@ Description: "geolocation"
 * extension[latitude].value[x] only decimal
 * extension[altitude].value[x] only decimal
 
+// This rule set limits the application of an extension to the given path
+RuleSet: ExtensionContext(path)
+* ^context[+].type = #element
+* ^context[=].expression = "{path}"
+
 
 Extension: proficiency
 Id:        proficiency
@@ -80,8 +85,8 @@ Title:    "proficiency"
 Description: "proficiency"
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/proficiency"
 * value[x] only CodeableConcept
-* ^context[+].type = #element
-* ^context[=].expression = "Practitioner.communication"
+* insert ExtensionContext(ETPractitioner)
+
 
 Extension: qualification
 Id:        qualification
