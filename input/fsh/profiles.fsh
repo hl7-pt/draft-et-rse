@@ -167,13 +167,18 @@ Description: "Example of a Practitioner Profile"
 //* identifier ^slicing.rules = #open
 //* identifier contains MedicoIdentifier 0..1 MS and  enfermeiroIdentifier 0..1 MS and farmaceuticoIdentifier 0..1 MS and dietista 0..1 MS
 
-* identifier only MedicoIdentifier or dietistaIdentifier or farmaceuticoIdentifier or enfermeiroIdentifier or MedicoIdentifier
+* identifier only MedicoIdentifier or dietistaIdentifier or farmaceuticoIdentifier or enfermeiroIdentifier 
+* identifier 0..1 MS
 
 
 * active ^short = "Indica se o profissional se encontra ativo ou inativo"
 
+* address.extension contains 
+    address-nuts named address-nuts 0..1 MS
+    
 * qualification 1..1 MS
 * qualification.code 1..1 MS
-
+* qualification.extension contains 
+    qualification named qualification 0..*
 * communication.extension contains
    proficiency named proficiency 0..1
