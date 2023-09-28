@@ -1,36 +1,4 @@
 
-CodeSystem: MeaningOrderCS
-Id:         lymph-node-cs
-Title:     "Lymph node code system"
-Description: "Lymph node terms that could not be found in standard sources such as SNOMED CT."
-//* ^url = http://spms.min-saude.pt/bdnp/codesystem/med-request-modality
-
-* #DIET-PT
-"Receita sem papel"
-* #RCP
-"Receita com papel"
-
-
-ValueSet: MeaningOrderVS
-* include codes from system MeaningOrderCS
-
-
-
-CodeSystem: IndicativeCS
-Id:         indicative-cs
-Title:     "Lymph node code system"
-Description: "Lymph node terms that could not be found in standard sources such as SNOMED CT."
-//* ^url = http://spms.min-saude.pt/bdnp/codesystem/med-request-modality
-
-* #DIET-PT
-"Receita sem papel"
-
-
-
-ValueSet: IndicativeVS
-* include codes from system IndicativeCS
-
-
 Extension: nationality-practitioner
 Id:        nationality-practitioner
 Title:     "Therapy Sessions Completed"
@@ -43,9 +11,6 @@ Id:        indicative
 Title:     "Therapy Sessions Completed"
 Description: "The number of sessions of some therapy."
 * value[x] only CodeableConcept
-* value[x] from IndicativeVS (required)
-
-
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/indicative"
 
 
@@ -58,20 +23,84 @@ Description: "The number of sessions of some therapy."
 
 
 
-Extension: MeaningOrder
-Id:        meaning-order
+Extension: address-type
+Id:        address-type
+Title:    "address-type"
+Description: "address-type"
+* value[x] only Coding
+* ^url = "http://spms.min-saude.pt/fhir/iop/extensions/address-type"
+
+Extension: municipality
+Id:        municipality
 Title:    "MODALIDADE DE PRESCRIÇÃO"
 Description: "Receita com papel (RCP) ou receita sem papel (RSP)."
 * value[x] only CodeableConcept
-* value[x] from MeaningOrderVS (required)
-* ^url = "http://spms.min-saude/pe/top/extensions/med-request-modality"
+* ^url = "http://spms.min-saude.pt/fhir/iop/extensions/municipality"
 
 
-Profile:     ExamplePatientProfile
-Id:          example-patient-profile
+Extension: parish
+Id:        parish
+Title:    "parish"
+Description: "parish"
+* value[x] only CodeableConcept
+* ^url = "http://spms.min-saude.pt/fhir/iop/extensions/parish"
+
+
+Extension: address-nuts
+Id:        address-nuts
+Title:    "address-nuts"
+Description: "address-nuts"
+* ^url = "http://spms.min-saude.pt/fhir/iop/extensions/address-nuts"
+* extension contains
+    nuts-I 1..1 MS and
+    nuts-II 1..1 MS and
+    nuts-III 1..1 MS
+* extension[nuts-I].value[x] only CodeableConcept
+* extension[nuts-II].value[x] only CodeableConcept
+* extension[nuts-III].value[x] only CodeableConcept
+
+
+Extension: geolocation
+Id:        geolocation
+Title:    "geolocation"
+Description: "geolocation"
+* ^url = "http://spms.min-saude.pt/fhir/iop/extensions/geolocation"
+* extension contains
+    longitude 1..1 MS and
+    latitude 1..1 MS and
+    altitude 1..1 MS
+* extension[longitude].value[x] only decimal
+* extension[latitude].value[x] only decimal
+* extension[altitude].value[x] only decimal
+
+
+Extension: proficiency
+Id:        proficiency
+Title:    "proficiency"
+Description: "proficiency"
+* ^url = "http://spms.min-saude.pt/fhir/iop/extensions/proficiency"
+* value[x] only CodeableConcept
+
+
+Extension: qualification
+Id:        qualification
+Title:    "qualification"
+Description: "qualification"
+* ^url = "http://spms.min-saude.pt/fhir/iop/extensions/qualification"
+* extension contains
+    status 1..1 MS and
+    start-date 1..1 MS and
+    suspension-period 1..1 MS
+* extension[status].value[x] only CodeableConcept
+* extension[start-date].value[x] only Period
+* extension[suspension-period].value[x] only Period
+
+
+Profile:     ETPractitioner
+Id:          ETPractitioner
 Parent:      Practitioner
 Title:       "Example Practitioner Profile"
-Description: "Example of a Practitioner of Patient"
+Description: "Example of a Practitioner Profile"
 
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "type.coding"
@@ -102,7 +131,7 @@ Description: "Example of a Practitioner of Patient"
 * identifier[farmaceutico].system ^short = "<url para o sistema de codificação respetivo>"
 * identifier[farmaceutico].use ^short = "<identifier-use>"
 
-* identifier[dietista].type.coding = MeaningOrderCS#DIET-PT   "Dietitian Practitioner Number"
+//* identifier[dietista].type.coding = MeaningOrderCS#DIET-PT   "Dietitian Practitioner Number"
 * identifier[dietista].value 1..1
 * identifier[dietista].type.text ^short = "Número da Cédula Profissional dietista"
 * identifier[dietista].value ^short = "<numero-da-cedula-profissional>"
@@ -110,3 +139,9 @@ Description: "Example of a Practitioner of Patient"
 * identifier[dietista].use ^short = "<identifier-use>"
 
 * active ^short = "Indica se o profissional se encontra ativo ou inativo"
+
+* qualification 1..1 MS
+* qualification.code 1..1 MS
+
+* communication.extension contains
+    proficiency 0..1 MS 
