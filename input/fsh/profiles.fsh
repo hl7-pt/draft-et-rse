@@ -151,3 +151,5 @@ Description: "Example of a Practitioner Profile"
 * qualification 1..1 MS
 * qualification.code 1..1 MS
 
+* communication.extension contains
+   proficiency named proficiency 0..1
