@@ -1,12 +1,24 @@
 
-Extension: nationality-practitioner
+Extension: NationalityPractitioner
 Id:        nationality-practitioner
 Title:     "nationality-practitioner"
 Description: "nationality-practitioner"
 * value[x] only CodeableConcept
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/nationality-practitioner"
 
-Extension: indicative
+
+
+Extension: SpmsCountry
+Id:        spms-country
+Title:     "spms-country"
+Description: "spms-country"
+* value[x] only CodeableConcept
+* ^url = "http://spms.min-saude.pt/fhir/iop/extensions/county"
+
+
+
+
+Extension: Indicative
 Id:        indicative
 Title:     "indicative"
 Description: "indicative"
@@ -14,7 +26,7 @@ Description: "indicative"
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/indicative"
 
 
-Extension: inactive-practitioner
+Extension: InactivePractitioner
 Id:       inactive-practitioner
 Title:     "inactive-practitioner"
 Description: "inactive-practitioner"
@@ -23,14 +35,14 @@ Description: "inactive-practitioner"
 
 
 
-Extension: address-type
+Extension: AddressType
 Id:        address-type
 Title:    "address-type"
 Description: "address-type"
 * value[x] only Coding
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/address-type"
 
-Extension: municipality
+Extension: Municipality
 Id:        municipality
 Title:    "municipality"
 Description: "municipality"
@@ -38,7 +50,7 @@ Description: "municipality"
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/municipality"
 
 
-Extension: parish
+Extension: Parish
 Id:        parish
 Title:    "parish"
 Description: "parish"
@@ -46,7 +58,7 @@ Description: "parish"
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/parish"
 
 
-Extension: address-nuts
+Extension: AddressNuts
 Id:        address-nuts
 Title:    "address-nuts"
 Description: "address-nuts"
@@ -60,7 +72,7 @@ Description: "address-nuts"
 * extension[nuts-III].value[x] only CodeableConcept
 
 
-Extension: geolocation
+Extension: Geolocation
 Id:        geolocation
 Title:    "geolocation"
 Description: "geolocation"
@@ -75,7 +87,7 @@ Description: "geolocation"
 
 
 
-Extension: proficiency
+Extension: Proficiency
 Id:        proficiency
 Title:    "proficiency"
 Description: "proficiency"
@@ -84,7 +96,7 @@ Description: "proficiency"
 * ^context.type = http://hl7.org/fhir/extension-context-type#element
 * ^context.expression = "Practitioner.communication"
 
-Extension: qualification
+Extension: Qualification
 Id:        qualification
 Title:    "qualification"
 Description: "qualification"
@@ -111,7 +123,7 @@ Description: "Example of a identifier md Profile"
 * use ^short = "<identifier-use>"
 
 
-Profile:     enfermeiroIdentifier
+Profile:     EnfermeiroIdentifier
 Id:          enfermeiroIdentifier
 Parent:      Identifier
 Title:       "Example identifier nurse Profile"
@@ -125,11 +137,11 @@ Description: "Example of a identifier nurse Profile"
 * use ^short = "<identifier-use>"
 
 
-Profile:     farmaceuticoIdentifier
+Profile:     FarmaceuticoIdentifier
 Id:          farmaceuticoIdentifier
 Parent:      Identifier
-Title:       "Example identifier pharma Profile"
-Description: "Example of a identifier pharma Profile"
+Title:       "identifier pharma Profile"
+Description: "identifier pharma Profile"
 
 * type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#RPH  "Pharmacist licence Number"
 * value 1..1
@@ -140,11 +152,11 @@ Description: "Example of a identifier pharma Profile"
 
 
 
-Profile:     dietistaIdentifier
+Profile:     DietistaIdentifier
 Id:          dietistaIdentifier
 Parent:      Identifier
-Title:       "Example identifier diet Profile"
-Description: "Example of a identifier diet Profile"
+Title:       "identifier diet Profile"
+Description: "identifier diet Profile"
 //* identifier[dietista].type.coding = MeaningOrderCS#DIET-PT   "Dietitian Practitioner Number"
 * value 1..1
 * type.text ^short = "Número da Cédula Profissional dietista"
@@ -162,35 +174,30 @@ Description: "Example of a Practitioner Profile"
 
 //falta o resto dos profissionais de saúde
 
-//* identifier ^slicing.discriminator.type = #value
-//* identifier ^slicing.discriminator.path = "type.coding"
-//* identifier ^slicing.rules = #open
-//* identifier contains MedicoIdentifier 0..1 MS and  enfermeiroIdentifier 0..1 MS and farmaceuticoIdentifier 0..1 MS and dietista 0..1 MS
-
-* identifier only MedicoIdentifier or dietistaIdentifier or farmaceuticoIdentifier or enfermeiroIdentifier 
+* identifier only MedicoIdentifier or DietistaIdentifier or FarmaceuticoIdentifier or EnfermeiroIdentifier 
 * identifier 0..1 MS
 
 
 * active ^short = "Indica se o profissional se encontra ativo ou inativo"
 
 * address.extension contains 
-    address-nuts named address-nuts 0..1 MS and
-    geolocation named geolocation 0..1 MS and
-    parish named parish 0..1 MS and
-    country named country 0..1 MS and 
-    municipality named municipality 0..1 MS and 
-    address-type named address-type 0..1 MS
+    AddressNuts named address-nuts 0..1 MS and
+    Geolocation named geolocation 0..1 MS and
+    Parish named parish 0..1 MS and
+    SpmsCountry named country 0..1 MS and 
+    Municipality named municipality 0..1 MS and 
+    AddressType named address-type 0..1 MS
 
 * telecom.extension contains
-    indicative named indicative 0..1 MS 
+    Indicative named indicative 0..1 MS 
 
 * extension contains
-    inactive-practitioner named inactive-practitioner 0..1 MS and
-    nationality-practitioner named nationality-practitioner 0..1 MS 
+    InactivePractitioner named inactive-practitioner 0..1 MS and
+    NationalityPractitioner named nationality-practitioner 0..1 MS 
 
 * qualification 1..1 MS
 * qualification.code 1..1 MS
 * qualification.extension contains 
-    qualification named qualification 0..*
+    Qualification named qualification 0..*
 * communication.extension contains
-   proficiency named proficiency 0..1
+   Proficiency named proficiency 0..1
