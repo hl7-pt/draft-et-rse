@@ -73,10 +73,6 @@ Description: "geolocation"
 * extension[latitude].value[x] only decimal
 * extension[altitude].value[x] only decimal
 
-// This rule set limits the application of an extension to the given path
-RuleSet: ExtensionContext(path)
-* ^context[+].type = #element
-* ^context[=].expression = "{path}"
 
 
 Extension: proficiency
@@ -85,8 +81,8 @@ Title:    "proficiency"
 Description: "proficiency"
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/proficiency"
 * value[x] only CodeableConcept
-* insert ExtensionContext(ETPractitioner)
-
+* ^context.type = http://hl7.org/fhir/extension-context-type#element
+* ^context.expression = "Practitioner.communication"
 
 Extension: qualification
 Id:        qualification
@@ -101,6 +97,18 @@ Description: "qualification"
 * extension[start-date].value[x] only Period
 * extension[suspension-period].value[x] only Period
 
+Profile:     MedicoIdentifier
+Id:          MedicoIdentifier
+Parent:      Identifier
+Title:       "Example identifier Profile"
+Description: "Example of a identifier Profile"
+
+* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#MD  "Medical License number"
+* value 1..1
+* type.text ^short = "Número da Cédula Profissional Médica"
+* value ^short = "<numero-da-cedula-profissional-do-medico>"
+* system ^short = "<url para o sistema de codificação respetivo>"
+* use ^short = "<identifier-use>"
 
 Profile:     ETPractitioner
 Id:          ETPractitioner
@@ -111,16 +119,10 @@ Description: "Example of a Practitioner Profile"
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "type.coding"
 * identifier ^slicing.rules = #open
-* identifier contains médico 0..1 MS and  enfermeiro 0..1 MS and farmaceutico 0..1 MS and dietista 0..1 MS
+* identifier contains MedicoIdentifier 0..1 MS and  enfermeiro 0..1 MS and farmaceutico 0..1 MS and dietista 0..1 MS
 
 //falta o resto dos profissionais de saúde
 
-* identifier[médico].type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#MD  "Medical License number"
-* identifier[médico].value 1..1
-* identifier[médico].type.text ^short = "Número da Cédula Profissional Médica"
-* identifier[médico].value ^short = "<numero-da-cedula-profissional-do-medico>"
-* identifier[médico].system ^short = "<url para o sistema de codificação respetivo>"
-* identifier[médico].use ^short = "<identifier-use>"
 
 
 * identifier[enfermeiro].type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#RN  "Registered Nurse Number"
