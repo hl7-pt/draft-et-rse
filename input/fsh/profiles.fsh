@@ -1,3 +1,137 @@
+CodeSystem: SPMSidentifierTypeCS
+Id:         spms-identifierType-cs
+Title:     "Portuguese identifier type code system"
+Description: "Portuguese identifier type code system"
+
+* #NUTR-PT
+    "nutricionista"
+    "nutricionista"
+
+* #NATU-PT
+    "Naturopata"
+    "Naturopata"
+
+* #PSY-PT
+    "Psicólogo"
+    "Psicólogo"
+
+* #PTP-PT
+    "Fisioterapeutas"
+    "Fisioterapeutas"
+
+* #FM-PT
+    "Físico Médico"
+    "Físico Médico"
+
+* #ASOC-PT
+    "Assistente Social"
+    "Assistente Social"
+
+* #LTA-PT
+    "Técnico de análises clínicas e de saúde pública"
+    "Técnico de análises clínicas e de saúde pública"
+
+* #APT-PT
+    "Técnico de anatomia patológica, citológica e tanatológica"
+    "Técnico de anatomia patológica, citológica e tanatológica"
+
+* #AT-PT
+    "Técnico de audiologia "
+    "Técnico de audiologia "
+
+* #CARDT-PT
+    "Técnico de cardiopneumologia"
+    "Técnico de cardiopneumologia"
+
+* #PHART-PT
+    "Técnico de farmácia"
+    "Técnico de farmácia"
+
+* #TCM-PT
+    "Especialista em medicina tradicional chinesa"
+    "Especialista em medicina tradicional chinesa"
+
+* #ACUNP-PT
+    "Acupuntor"
+    "Acupuntor"
+
+* #PHYTT-PT
+    "Fitoterapeuta"
+    "Fitoterapeuta"
+
+* #HOMEP-PT
+    "Homeopata"
+    "Homeopata"
+
+* #DH-PT
+    "Higienista oral"
+    "Higienista oral"
+
+* #CHIR-PT
+    "Quiroprático"
+    "Quiroprático"
+
+* #DIET-PT
+    "Dietista"
+    "Dietista"
+
+* #NMR-PT
+    "Técnico de medicina nuclear"
+    "Técnico de medicina nuclear"
+
+* #NT-PT
+    "Técnico de neurofisiologia"
+    "Técnico de neurofisiologia"
+
+* #ORT-PT
+    "Ortoprotésico"
+    "Ortoprotésico"
+
+* #DT-PT
+    "Técnico de prótese dentária"
+    "Técnico de prótese dentária"
+
+* #DGR-PT
+    "Técnico de radiologia"
+    "Técnico de radiologia"
+
+* #TR-PT
+    "Técnico de radioterapia"
+    "Técnico de radioterapia"
+
+* #SLT-PT
+    "Terapeuta da fala"
+    "Terapeuta da fala"
+
+
+* #OCCT-PT
+    "Terapeuta ocupacional"
+    "Terapeuta ocupacional"
+
+
+* #EHO-PT
+    "Técnico de saúde ambiental"
+    "Técnico de saúde ambiental"
+
+* #ODTL-PT
+    "Odontologista"
+    "Odontologista"
+
+
+* #RCN-PT
+    "Número de Identificação de Título de Residência"
+    "Número de Identificação de Título de Residência"
+
+
+
+
+ValueSet: SPMSidentifierTypeVS
+Id: spms-identifierType-vs
+Title: "Portuguese identifier type value set"
+Description: "Portuguese identifier type value set"
+
+* include codes from system SPMSidentifierTypeCS
+
 
 Extension: NationalityPractitioner
 Id:        nationality-practitioner
@@ -8,10 +142,10 @@ Description: "nationality-practitioner"
 
 
 
-Extension: SpmsCountry
-Id:        spms-country
-Title:     "spms-country"
-Description: "spms-country"
+Extension: SpmsCounty
+Id:        spms-county
+Title:     "spms-county"
+Description: "spms-county"
 * value[x] only CodeableConcept
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/county"
 
@@ -150,6 +284,73 @@ Description: "identifier pharma Profile"
 * system ^short = "<url para o sistema de codificação respetivo>"
 * use ^short = "<identifier-use>"
 
+Profile:     MedicoDentistaIdentifier
+Id:          medicodentistaIdentifier
+Parent:      Identifier
+Title:       "identifier medico dentista Profile"
+Description: "identifier medico dentista Profile"
+
+* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#DDS  "Dentist license number"
+
+Profile:     NutricionistaIdentifier
+Id:          nutricionistaIdentifier
+Parent:      Identifier
+Title:       "identifier nutricionista Profile"
+Description: "identifier nutricionista Profile"
+
+* type.coding =  SPMSidentifierTypeCS#NUTR-PT  "Dentist license number"
+
+
+Profile:     PsicologoIdentifier
+Id:          psicologoIdentifier
+Parent:      Identifier
+Title:       "identifier Psicologo Profile"
+Description: "identifier Psicologo Profile"
+
+* type.coding =  SPMSidentifierTypeCS#PSY-PT  "Psychologist Identifier"
+
+Profile:     PodologistaIdentifier
+Id:          podologistaIdentifier
+Parent:      Identifier
+Title:       "identifier Podologista Profile"
+Description: "identifier Podologista Profile"
+
+* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#DPM  "Podiatrist license number"
+
+
+Profile:     NumeroMecanograficoIdentifier
+Id:          numeroMecanograficoIdentifier
+Parent:      Identifier
+Title:       "identifier numero mecanografico Profile"
+Description: "identifier numero mecanografico Profile"
+
+* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#EI  "Employee number"
+
+
+Profile:     FisioterapeutasIdentifier
+Id:          fisioterapeutasIdentifier
+Parent:      Identifier
+Title:       "identifier Fisioterapeutas Profile"
+Description: "identifier Fisioterapeutas Profile"
+
+* type.coding =  SPMSidentifierTypeCS#PTP-PT  "Physiotherapist Practitioner Number"
+
+
+Profile:     FisicoMedicoIdentifier
+Id:          fisicoMedicoIdentifier
+Parent:      Identifier
+Title:       "identifier Físico Médico Profile"
+Description: "identifier Físico Médico Profile"
+
+* type.coding =  SPMSidentifierTypeCS#FM-PT  "Medical Physicist Practitioner Number"
+
+Profile:     AssistenteSocialIdentifier
+Id:          assistenteSocialIdentifier
+Parent:      Identifier
+Title:       "identifier Assistente Social Profile"
+Description: "identifier Assistente Social Profile"
+
+* type.coding =  SPMSidentifierTypeCS#ASOC-PT  "Social Work Assistant Practitioner Number"
 
 
 Profile:     DietistaIdentifier
@@ -157,12 +358,37 @@ Id:          dietistaIdentifier
 Parent:      Identifier
 Title:       "identifier diet Profile"
 Description: "identifier diet Profile"
-//* identifier[dietista].type.coding = MeaningOrderCS#DIET-PT   "Dietitian Practitioner Number"
+* type.coding = SPMSidentifierTypeCS#DIET-PT   "Dietitian Practitioner Number"
 * value 1..1
 * type.text ^short = "Número da Cédula Profissional dietista"
 * value ^short = "<numero-da-cedula-profissional>"
 * system ^short = "<url para o sistema de codificação respetivo>"
 * use ^short = "<identifier-use>"
+
+Profile:     AcupuntorIdentifier
+Id:          acupuntorIdentifier
+Parent:      Identifier
+Title:       "identifier Acupuntor Profile"
+Description: "identifier Acupuntor Profile"
+
+* type.coding =  SPMSidentifierTypeCS#ACUNP-PT "Acupuncturist Practitioner Number"
+
+Profile:     FitoterapeutaIdentifier
+Id:          fitoterapeutaIdentifier
+Parent:      Identifier
+Title:       "identifier Fitoterapeuta Profile"
+Description: "identifier Fitoterapeuta Profile"
+
+* type.coding =  SPMSidentifierTypeCS#PHYTT-PT "Phytotherapist Practitioner Number"
+
+Profile:     HomeopataIdentifier
+Id:          homeopataIdentifier
+Parent:      Identifier
+Title:       "identifier Homeopata Profile"
+Description: "identifier Homeopata Profile"
+
+* type.coding =  SPMSidentifierTypeCS#HOMEP-PT "Specialist in Homeopathy Practitioner Number"
+
 
 
 
@@ -174,8 +400,9 @@ Description: "Example of a Practitioner Profile"
 
 //falta o resto dos profissionais de saúde
 
-* identifier only MedicoIdentifier or DietistaIdentifier or FarmaceuticoIdentifier or EnfermeiroIdentifier 
-* identifier 0..1 MS
+* identifier only MedicoIdentifier or DietistaIdentifier or FarmaceuticoIdentifier or EnfermeiroIdentifier or HomeopataIdentifier
+or FitoterapeutaIdentifier
+
 
 
 * active ^short = "Indica se o profissional se encontra ativo ou inativo"
@@ -184,7 +411,7 @@ Description: "Example of a Practitioner Profile"
     AddressNuts named address-nuts 0..1 MS and
     Geolocation named geolocation 0..1 MS and
     Parish named parish 0..1 MS and
-    SpmsCountry named country 0..1 MS and 
+    SpmsCounty named county 0..1 MS and 
     Municipality named municipality 0..1 MS and 
     AddressType named address-type 0..1 MS
 
@@ -195,8 +422,7 @@ Description: "Example of a Practitioner Profile"
     InactivePractitioner named inactive-practitioner 0..1 MS and
     NationalityPractitioner named nationality-practitioner 0..1 MS 
 
-* qualification 1..1 MS
-* qualification.code 1..1 MS
+
 * qualification.extension contains 
     Qualification named qualification 0..*
 * communication.extension contains
