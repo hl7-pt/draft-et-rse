@@ -157,6 +157,7 @@ Description:  "identifier Profissional PT profile"
 
 * type.coding from spms-identifierType-vs (required)
 
+* value 1..1 MS
 
 Extension: NationalityPractitioner
 Id:        nationality-practitioner
