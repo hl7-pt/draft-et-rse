@@ -447,8 +447,8 @@ Description:  "identifier Técnico de audiologia Profile"
 
 * type.coding =  SPMSidentifierTypeCS#AT-PT "Audiology Technician Practitioner Number"
 
-Profile:     ATIdentifier
-Id:          atIdentifier
+Profile:     CARDTIdentifier
+Id:          cardtIdentifier
 Parent:      Identifier
 Title:       "identifier Técnico de cardiopneumologia Profile"
 Description:  "identifier Técnico de cardiopneumologia Profile"
@@ -471,7 +471,150 @@ Description:  "identifier Higienista oral Profile"
 
 * type.coding =  SPMSidentifierTypeCS#DH-PT "Dental Hygienist Practitioner Number"
 
+Profile:     NMRIdentifier
+Id:          nmrIdentifier
+Parent:      Identifier
+Title:       "identifier Técnico de medicina nuclearProfile"
+Description:  "identifier Técnico de medicina nuclear Profile"
 
+* type.coding =  SPMSidentifierTypeCS#NMR-PT "Nuclear Medicine Radiographer Practitioner Number"
+
+Profile:     NTIdentifier
+Id:          ntIdentifier
+Parent:      Identifier
+Title:       "identifier Técnico de neurofisiologia profile"
+Description:  "identifier Técnico de neurofisiologia Profile"
+
+* type.coding =  SPMSidentifierTypeCS#NT-PT "Neurophysiology technologist Practitioner Number"
+
+Profile:     ODIdentifier
+Id:          odIdentifier
+Parent:      Identifier
+Title:       "identifier Técnico de ortóptica profile"
+Description:  "identifier Técnico de ortóptica Profile"
+
+* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#OD  "Optometrist Practitioner Number"
+
+Profile:     ORTIdentifier
+Id:          ortIdentifier
+Parent:      Identifier
+Title:       "identifier Ortoprotésico profile"
+Description:  "identifier Ortoprotésico Profile"
+
+* type.coding =  SPMSidentifierTypeCS#ORT-PT "Orthotist Practitioner Number"
+
+Profile:     DTIdentifier
+Id:          dtIdentifier
+Parent:      Identifier
+Title:       "identifier Técnico de prótese dentária profile"
+Description:  "identifier Técnico de prótese dentária Profile"
+
+* type.coding =  SPMSidentifierTypeCS#DT-PT "Dental Technician Practitioner Number"
+
+Profile:     DGRIdentifier
+Id:          dgrIdentifier
+Parent:      Identifier
+Title:       "identifier Técnico de radiologia profile"
+Description:  "identifier Técnico de radiologia Profile"
+
+* type.coding =  SPMSidentifierTypeCS#DGR-PT "Diagnostic Radiographer Practitioner Number"
+
+Profile:     TRIdentifier
+Id:          trIdentifier
+Parent:      Identifier
+Title:       "identifier Técnico de radioterapia profile"
+Description:  "identifier Técnico de radioterapia Profile"
+
+* type.coding =  SPMSidentifierTypeCS#TR-PT "Therapeutic Radiographer Practitioner Number"
+
+Profile:     SLTIdentifier
+Id:          sltIdentifier
+Parent:      Identifier
+Title:       "identifier Terapeuta da fala profile"
+Description:  "identifier Terapeuta da fala Profile"
+
+* type.coding =  SPMSidentifierTypeCS#SLT-PT "Speech and Language Therapist Practitioner Number"
+
+Profile:     OCCTIdentifier
+Id:          occtIdentifier
+Parent:      Identifier
+Title:       "identifier Terapeuta ocupacional profile"
+Description:  "identifier Terapeuta ocupacional Profile"
+
+* type.coding =  SPMSidentifierTypeCS#OCCT-PT "Occupational Therapist Practitioner Number"
+
+Profile:     EHOIdentifier
+Id:          ehoIdentifier
+Parent:      Identifier
+Title:       "identifier Técnico de saúde ambiental profile"
+Description:  "identifier Técnico de saúde ambiental Profile"
+
+* type.coding =  SPMSidentifierTypeCS#EHO-PT "Environmental Health Officer Practitioner Number"
+
+
+Profile:     ODTLIdentifier
+Id:          odtlIdentifier
+Parent:      Identifier
+Title:       "identifier Odontologista profile"
+Description:  "identifier Odontologista Profile"
+
+* type.coding =  SPMSidentifierTypeCS#ODTL-PT "Odontologist Practitioner Number"
+
+Profile:     lnIdentifier
+Id:          lnIdentifier
+Parent:      Identifier
+Title:       "identifier Outros Regulados por Ordens Profissionais ou Equivalente a Ordens profile"
+Description:  "identifier Outros Regulados por Ordens Profissionais ou Equivalente a Ordens profile"
+
+* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#LN  "License number"
+
+Profile:     RCNIdentifier
+Id:          rcnIdentifier
+Parent:      Identifier
+Title:       "identifier Número de Identificação de Título de Residência profile"
+Description:   "identifier Número de Identificação de Título de Residência profile"
+
+* type.coding =  SPMSidentifierTypeCS#RCN-PT "Resident Card Number"
+
+Profile:     CCIdentifier
+Id:          ccIdentifier
+Parent:      Identifier
+Title:       "identifier Número de Identificação Civil  profile"
+Description:  "identifier Número de Identificação Civil profile"
+
+* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#CZ  "Citizenship Card"
+
+Profile:     TAXIdentifier
+Id:          taxIdentifier
+Parent:      Identifier
+Title:       "identifier Número de Identificação Fiscal profile"
+Description:  "identifier Número de Identificação Fiscal profile"
+
+* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#TAX  "Tax ID Number"
+
+Profile:     SSIdentifier
+Id:          ssIdentifier
+Parent:      Identifier
+Title:       "identifier Número de Identificação da Segurança Social profile"
+Description:  "identifier Número de Identificação da Segurança Social profile"
+
+* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#SS  "Social Security Number"
+
+Profile:     NPIIdentifier
+Id:          npiIdentifier
+Parent:      Identifier
+Title:       "identifier Número Nacional do Profissional profile"
+Description:  "identifier Número Nacional do Profissional profile"
+
+* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#NPI  "National Provider Identifier"
+
+Profile:     PPNIdentifier
+Id:          ppnIdentifier
+Parent:      Identifier
+Title:       "identifier Número do Passaporte profile"
+Description:  "identifier Número do Passaporte profile"
+
+* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#PPN  "Passport Number"
 
 
 Profile:     ETPractitioner
@@ -483,7 +626,7 @@ Description: "O recurso Practitioner caracteriza de forma abrangente um profissi
 //falta o resto dos profissionais de saúde
 
 * identifier only MedicoIdentifier or DietistaIdentifier or FarmaceuticoIdentifier or EnfermeiroIdentifier or HomeopataIdentifier
-or FitoterapeutaIdentifier
+or FitoterapeutaIdentifier or DTIdentifier
 
 
 
