@@ -390,13 +390,95 @@ Description: "identifier Homeopata Profile"
 * type.coding =  SPMSidentifierTypeCS#HOMEP-PT "Specialist in Homeopathy Practitioner Number"
 
 
+Profile:     NaturopataIdentifier
+Id:          naturopataIdentifier
+Parent:      Identifier
+Title:       "identifier Naturopata Profile"
+Description: "identifier Naturopata Profile"
+
+* type.coding =  SPMSidentifierTypeCS#NATU-PT "Specialist in Naturopathy Practitioner Number"
+
+Profile:    OsteopataIdentifier
+Id:          osteopataIdentifier
+Parent:      Identifier
+Title:       "identifier Osteopata Profile"
+Description: "identifier Osteopata Profile"
+
+* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#DO  "Osteopath Practitioner Number"
+
+
+Profile:     QuiropraticoIdentifier
+Id:          QuiropraticoIdentifier
+Parent:      Identifier
+Title:       "identifier Quiroprático Profile"
+Description: "identifier Quiroprático Profile"
+
+* type.coding =  SPMSidentifierTypeCS#CHIR-PT "Chiropractor Practitioner Number"
+
+Profile:     EMTCIdentifier
+Id:          emtcIdentifier
+Parent:      Identifier
+Title:       "identifier Especialista em medicina tradicional chinesa Profile"
+Description: "identifier Especialista em medicina tradicional chinesa Profile"
+
+* type.coding =  SPMSidentifierTypeCS#TCM-PT "Specialist in Traditional Chinese Medicine Practitioner Number"
+
+Profile:     LTAIdentifier
+Id:          ltaIdentifier
+Parent:      Identifier
+Title:       "identifier Técnico de análises clínicas e de saúde pública Profile"
+Description: "identifier Técnico de análises clínicas e de saúde pública Profile"
+
+* type.coding =  SPMSidentifierTypeCS#LTA-PT "Laboratory Technician - Analysis Practitioner Number"
+
+Profile:     APTIdentifier
+Id:          aptIdentifier
+Parent:      Identifier
+Title:       "identifier Técnico de anatomia patológica, citológica e tanatológica Profile"
+Description:  "identifier Técnico de anatomia patológica, citológica e tanatológica Profile"
+
+* type.coding =  SPMSidentifierTypeCS#APT-PT "Anatomical Pathology Technician Practitioner Number"
+
+Profile:     ATIdentifier
+Id:          atIdentifier
+Parent:      Identifier
+Title:       "identifier Técnico de audiologia Profile"
+Description:  "identifier Técnico de audiologia Profile"
+
+* type.coding =  SPMSidentifierTypeCS#AT-PT "Audiology Technician Practitioner Number"
+
+Profile:     ATIdentifier
+Id:          atIdentifier
+Parent:      Identifier
+Title:       "identifier Técnico de cardiopneumologia Profile"
+Description:  "identifier Técnico de cardiopneumologia Profile"
+
+* type.coding =  SPMSidentifierTypeCS#CARDT-PT "Cardiopneumology Technician Practitioner Number"
+
+Profile:     PHARTIdentifier
+Id:          phartIdentifier
+Parent:      Identifier
+Title:       "identifier Técnico de farmácia Profile"
+Description:  "identifier Técnico de farmácia Profile"
+
+* type.coding =  SPMSidentifierTypeCS#PHART-PT "Pharmacy Technician Practitioner Number"
+
+Profile:     HigienistaoralIdentifier
+Id:          higienistaoralIdentifier
+Parent:      Identifier
+Title:       "identifier Higienista oral Profile"
+Description:  "identifier Higienista oral Profile"
+
+* type.coding =  SPMSidentifierTypeCS#DH-PT "Dental Hygienist Practitioner Number"
+
+
 
 
 Profile:     ETPractitioner
 Id:          ETPractitioner
 Parent:      Practitioner
 Title:       "Example Practitioner Profile"
-Description: "Example of a Practitioner Profile"
+Description: "O recurso Practitioner caracteriza de forma abrangente um profissional de saúde. A definição transversal deste recurso permite, assim, a existência de uma visão única relativamente aos atributos que o caracterizam e que se afiguram como relevantes no âmbito da partilha de informação entre sistemas. O recurso Practitioner é utilizado para descrever um indivíduo que está direta ou indiretamente envolvido na prestação de cuidados de saúde. "
 
 //falta o resto dos profissionais de saúde
 
