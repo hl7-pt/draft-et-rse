@@ -125,12 +125,37 @@ Description: "Portuguese identifier type code system"
 
 
 
+
+
 ValueSet: SPMSidentifierTypeVS
 Id: spms-identifierType-vs
 Title: "Portuguese identifier type value set"
 Description: "Portuguese identifier type value set"
 
 * include codes from system SPMSidentifierTypeCS
+* http://terminology.hl7.org/CodeSystem/v2-0203#PPN  "Passport Number"
+* http://terminology.hl7.org/CodeSystem/v2-0203#NPI  "National Provider Identifier"
+* http://terminology.hl7.org/CodeSystem/v2-0203#SS  "Social Security Number"
+* http://terminology.hl7.org/CodeSystem/v2-0203#TAX  "Tax ID Number"
+* http://terminology.hl7.org/CodeSystem/v2-0203#CZ  "Citizenship Card"
+* http://terminology.hl7.org/CodeSystem/v2-0203#LN  "License number"
+* http://terminology.hl7.org/CodeSystem/v2-0203#OD  "Optometrist Practitioner Number"
+* http://terminology.hl7.org/CodeSystem/v2-0203#DO  "Osteopath Practitioner Number"
+* http://terminology.hl7.org/CodeSystem/v2-0203#EI  "Employee number"
+* http://terminology.hl7.org/CodeSystem/v2-0203#DPM  "Podiatrist license number"
+* http://terminology.hl7.org/CodeSystem/v2-0203#DDS  "Dentist license number"
+* http://terminology.hl7.org/CodeSystem/v2-0203#RPH  "Pharmacist licence Number"
+* http://terminology.hl7.org/CodeSystem/v2-0203#RN  "Registered Nurse Number"
+* http://terminology.hl7.org/CodeSystem/v2-0203#MD  "Medical License number"
+
+
+Profile:     PTPractitionerIdentifier
+Id:          pt-practitioner-identifier
+Parent:      Identifier
+Title:       "identifier Profissional PT profile"
+Description:  "identifier Profissional PT profile"
+
+* type.coding from spms-identifierType-vs (required)
 
 
 Extension: NationalityPractitioner
@@ -243,380 +268,6 @@ Description: "qualification"
 * extension[start-date].value[x] only Period
 * extension[suspension-period].value[x] only Period
 
-Profile:     MedicoIdentifier
-Id:          MedicoIdentifier
-Parent:      Identifier
-Title:       "Example identifier md Profile"
-Description: "Example of a identifier md Profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#MD  "Medical License number"
-* value 1..1
-* type.text ^short = "Número da Cédula Profissional Médica"
-* value ^short = "<numero-da-cedula-profissional-do-medico>"
-* system ^short = "<url para o sistema de codificação respetivo>"
-* use ^short = "<identifier-use>"
-
-
-Profile:     EnfermeiroIdentifier
-Id:          enfermeiroIdentifier
-Parent:      Identifier
-Title:       "Example identifier nurse Profile"
-Description: "Example of a identifier nurse Profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#RN  "Registered Nurse Number"
-* value 1..1
-* type.text ^short = "Número da Cédula Profissional de enfermagem"
-* value ^short = "<numero-da-cedula-profissional-do-enfermeiro>"
-* system ^short = "<url para o sistema de codificação respetivo>"
-* use ^short = "<identifier-use>"
-
-
-Profile:     FarmaceuticoIdentifier
-Id:          farmaceuticoIdentifier
-Parent:      Identifier
-Title:       "identifier pharma Profile"
-Description: "identifier pharma Profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#RPH  "Pharmacist licence Number"
-* value 1..1
-* type.text ^short = "Número da Cédula Profissional farmacêutica"
-* value ^short = "<numero-da-cedula-profissional-do-farmaceutico>"
-* system ^short = "<url para o sistema de codificação respetivo>"
-* use ^short = "<identifier-use>"
-
-Profile:     MedicoDentistaIdentifier
-Id:          medicodentistaIdentifier
-Parent:      Identifier
-Title:       "identifier medico dentista Profile"
-Description: "identifier medico dentista Profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#DDS  "Dentist license number"
-
-Profile:     NutricionistaIdentifier
-Id:          nutricionistaIdentifier
-Parent:      Identifier
-Title:       "identifier nutricionista Profile"
-Description: "identifier nutricionista Profile"
-
-* type.coding =  SPMSidentifierTypeCS#NUTR-PT  "Dentist license number"
-
-
-Profile:     PsicologoIdentifier
-Id:          psicologoIdentifier
-Parent:      Identifier
-Title:       "identifier Psicologo Profile"
-Description: "identifier Psicologo Profile"
-
-* type.coding =  SPMSidentifierTypeCS#PSY-PT  "Psychologist Identifier"
-
-Profile:     PodologistaIdentifier
-Id:          podologistaIdentifier
-Parent:      Identifier
-Title:       "identifier Podologista Profile"
-Description: "identifier Podologista Profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#DPM  "Podiatrist license number"
-
-
-Profile:     NumeroMecanograficoIdentifier
-Id:          numeroMecanograficoIdentifier
-Parent:      Identifier
-Title:       "identifier numero mecanografico Profile"
-Description: "identifier numero mecanografico Profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#EI  "Employee number"
-
-
-Profile:     FisioterapeutasIdentifier
-Id:          fisioterapeutasIdentifier
-Parent:      Identifier
-Title:       "identifier Fisioterapeutas Profile"
-Description: "identifier Fisioterapeutas Profile"
-
-* type.coding =  SPMSidentifierTypeCS#PTP-PT  "Physiotherapist Practitioner Number"
-
-
-Profile:     FisicoMedicoIdentifier
-Id:          fisicoMedicoIdentifier
-Parent:      Identifier
-Title:       "identifier Físico Médico Profile"
-Description: "identifier Físico Médico Profile"
-
-* type.coding =  SPMSidentifierTypeCS#FM-PT  "Medical Physicist Practitioner Number"
-
-Profile:     AssistenteSocialIdentifier
-Id:          assistenteSocialIdentifier
-Parent:      Identifier
-Title:       "identifier Assistente Social Profile"
-Description: "identifier Assistente Social Profile"
-
-* type.coding =  SPMSidentifierTypeCS#ASOC-PT  "Social Work Assistant Practitioner Number"
-
-
-Profile:     DietistaIdentifier
-Id:          dietistaIdentifier
-Parent:      Identifier
-Title:       "identifier diet Profile"
-Description: "identifier diet Profile"
-* type.coding = SPMSidentifierTypeCS#DIET-PT   "Dietitian Practitioner Number"
-* value 1..1
-* type.text ^short = "Número da Cédula Profissional dietista"
-* value ^short = "<numero-da-cedula-profissional>"
-* system ^short = "<url para o sistema de codificação respetivo>"
-* use ^short = "<identifier-use>"
-
-Profile:     AcupuntorIdentifier
-Id:          acupuntorIdentifier
-Parent:      Identifier
-Title:       "identifier Acupuntor Profile"
-Description: "identifier Acupuntor Profile"
-
-* type.coding =  SPMSidentifierTypeCS#ACUNP-PT "Acupuncturist Practitioner Number"
-
-Profile:     FitoterapeutaIdentifier
-Id:          fitoterapeutaIdentifier
-Parent:      Identifier
-Title:       "identifier Fitoterapeuta Profile"
-Description: "identifier Fitoterapeuta Profile"
-
-* type.coding =  SPMSidentifierTypeCS#PHYTT-PT "Phytotherapist Practitioner Number"
-
-Profile:     HomeopataIdentifier
-Id:          homeopataIdentifier
-Parent:      Identifier
-Title:       "identifier Homeopata Profile"
-Description: "identifier Homeopata Profile"
-
-* type.coding =  SPMSidentifierTypeCS#HOMEP-PT "Specialist in Homeopathy Practitioner Number"
-
-
-Profile:     NaturopataIdentifier
-Id:          naturopataIdentifier
-Parent:      Identifier
-Title:       "identifier Naturopata Profile"
-Description: "identifier Naturopata Profile"
-
-* type.coding =  SPMSidentifierTypeCS#NATU-PT "Specialist in Naturopathy Practitioner Number"
-
-Profile:    OsteopataIdentifier
-Id:          osteopataIdentifier
-Parent:      Identifier
-Title:       "identifier Osteopata Profile"
-Description: "identifier Osteopata Profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#DO  "Osteopath Practitioner Number"
-
-
-Profile:     QuiropraticoIdentifier
-Id:          QuiropraticoIdentifier
-Parent:      Identifier
-Title:       "identifier Quiroprático Profile"
-Description: "identifier Quiroprático Profile"
-
-* type.coding =  SPMSidentifierTypeCS#CHIR-PT "Chiropractor Practitioner Number"
-
-Profile:     EMTCIdentifier
-Id:          emtcIdentifier
-Parent:      Identifier
-Title:       "identifier Especialista em medicina tradicional chinesa Profile"
-Description: "identifier Especialista em medicina tradicional chinesa Profile"
-
-* type.coding =  SPMSidentifierTypeCS#TCM-PT "Specialist in Traditional Chinese Medicine Practitioner Number"
-
-Profile:     LTAIdentifier
-Id:          ltaIdentifier
-Parent:      Identifier
-Title:       "identifier Técnico de análises clínicas e de saúde pública Profile"
-Description: "identifier Técnico de análises clínicas e de saúde pública Profile"
-
-* type.coding =  SPMSidentifierTypeCS#LTA-PT "Laboratory Technician - Analysis Practitioner Number"
-
-Profile:     APTIdentifier
-Id:          aptIdentifier
-Parent:      Identifier
-Title:       "identifier Técnico de anatomia patológica, citológica e tanatológica Profile"
-Description:  "identifier Técnico de anatomia patológica, citológica e tanatológica Profile"
-
-* type.coding =  SPMSidentifierTypeCS#APT-PT "Anatomical Pathology Technician Practitioner Number"
-
-Profile:     ATIdentifier
-Id:          atIdentifier
-Parent:      Identifier
-Title:       "identifier Técnico de audiologia Profile"
-Description:  "identifier Técnico de audiologia Profile"
-
-* type.coding =  SPMSidentifierTypeCS#AT-PT "Audiology Technician Practitioner Number"
-
-Profile:     CARDTIdentifier
-Id:          cardtIdentifier
-Parent:      Identifier
-Title:       "identifier Técnico de cardiopneumologia Profile"
-Description:  "identifier Técnico de cardiopneumologia Profile"
-
-* type.coding =  SPMSidentifierTypeCS#CARDT-PT "Cardiopneumology Technician Practitioner Number"
-
-Profile:     PHARTIdentifier
-Id:          phartIdentifier
-Parent:      Identifier
-Title:       "identifier Técnico de farmácia Profile"
-Description:  "identifier Técnico de farmácia Profile"
-
-* type.coding =  SPMSidentifierTypeCS#PHART-PT "Pharmacy Technician Practitioner Number"
-
-Profile:     HigienistaoralIdentifier
-Id:          higienistaoralIdentifier
-Parent:      Identifier
-Title:       "identifier Higienista oral Profile"
-Description:  "identifier Higienista oral Profile"
-
-* type.coding =  SPMSidentifierTypeCS#DH-PT "Dental Hygienist Practitioner Number"
-
-Profile:     NMRIdentifier
-Id:          nmrIdentifier
-Parent:      Identifier
-Title:       "identifier Técnico de medicina nuclearProfile"
-Description:  "identifier Técnico de medicina nuclear Profile"
-
-* type.coding =  SPMSidentifierTypeCS#NMR-PT "Nuclear Medicine Radiographer Practitioner Number"
-
-Profile:     NTIdentifier
-Id:          ntIdentifier
-Parent:      Identifier
-Title:       "identifier Técnico de neurofisiologia profile"
-Description:  "identifier Técnico de neurofisiologia Profile"
-
-* type.coding =  SPMSidentifierTypeCS#NT-PT "Neurophysiology technologist Practitioner Number"
-
-Profile:     ODIdentifier
-Id:          odIdentifier
-Parent:      Identifier
-Title:       "identifier Técnico de ortóptica profile"
-Description:  "identifier Técnico de ortóptica Profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#OD  "Optometrist Practitioner Number"
-
-Profile:     ORTIdentifier
-Id:          ortIdentifier
-Parent:      Identifier
-Title:       "identifier Ortoprotésico profile"
-Description:  "identifier Ortoprotésico Profile"
-
-* type.coding =  SPMSidentifierTypeCS#ORT-PT "Orthotist Practitioner Number"
-
-Profile:     DTIdentifier
-Id:          dtIdentifier
-Parent:      Identifier
-Title:       "identifier Técnico de prótese dentária profile"
-Description:  "identifier Técnico de prótese dentária Profile"
-
-* type.coding =  SPMSidentifierTypeCS#DT-PT "Dental Technician Practitioner Number"
-
-Profile:     DGRIdentifier
-Id:          dgrIdentifier
-Parent:      Identifier
-Title:       "identifier Técnico de radiologia profile"
-Description:  "identifier Técnico de radiologia Profile"
-
-* type.coding =  SPMSidentifierTypeCS#DGR-PT "Diagnostic Radiographer Practitioner Number"
-
-Profile:     TRIdentifier
-Id:          trIdentifier
-Parent:      Identifier
-Title:       "identifier Técnico de radioterapia profile"
-Description:  "identifier Técnico de radioterapia Profile"
-
-* type.coding =  SPMSidentifierTypeCS#TR-PT "Therapeutic Radiographer Practitioner Number"
-
-Profile:     SLTIdentifier
-Id:          sltIdentifier
-Parent:      Identifier
-Title:       "identifier Terapeuta da fala profile"
-Description:  "identifier Terapeuta da fala Profile"
-
-* type.coding =  SPMSidentifierTypeCS#SLT-PT "Speech and Language Therapist Practitioner Number"
-
-Profile:     OCCTIdentifier
-Id:          occtIdentifier
-Parent:      Identifier
-Title:       "identifier Terapeuta ocupacional profile"
-Description:  "identifier Terapeuta ocupacional Profile"
-
-* type.coding =  SPMSidentifierTypeCS#OCCT-PT "Occupational Therapist Practitioner Number"
-
-Profile:     EHOIdentifier
-Id:          ehoIdentifier
-Parent:      Identifier
-Title:       "identifier Técnico de saúde ambiental profile"
-Description:  "identifier Técnico de saúde ambiental Profile"
-
-* type.coding =  SPMSidentifierTypeCS#EHO-PT "Environmental Health Officer Practitioner Number"
-
-
-Profile:     ODTLIdentifier
-Id:          odtlIdentifier
-Parent:      Identifier
-Title:       "identifier Odontologista profile"
-Description:  "identifier Odontologista Profile"
-
-* type.coding =  SPMSidentifierTypeCS#ODTL-PT "Odontologist Practitioner Number"
-
-Profile:     lnIdentifier
-Id:          lnIdentifier
-Parent:      Identifier
-Title:       "identifier Outros Regulados por Ordens Profissionais ou Equivalente a Ordens profile"
-Description:  "identifier Outros Regulados por Ordens Profissionais ou Equivalente a Ordens profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#LN  "License number"
-
-Profile:     RCNIdentifier
-Id:          rcnIdentifier
-Parent:      Identifier
-Title:       "identifier Número de Identificação de Título de Residência profile"
-Description:   "identifier Número de Identificação de Título de Residência profile"
-
-* type.coding =  SPMSidentifierTypeCS#RCN-PT "Resident Card Number"
-
-Profile:     CCIdentifier
-Id:          ccIdentifier
-Parent:      Identifier
-Title:       "identifier Número de Identificação Civil  profile"
-Description:  "identifier Número de Identificação Civil profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#CZ  "Citizenship Card"
-
-Profile:     TAXIdentifier
-Id:          taxIdentifier
-Parent:      Identifier
-Title:       "identifier Número de Identificação Fiscal profile"
-Description:  "identifier Número de Identificação Fiscal profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#TAX  "Tax ID Number"
-
-Profile:     SSIdentifier
-Id:          ssIdentifier
-Parent:      Identifier
-Title:       "identifier Número de Identificação da Segurança Social profile"
-Description:  "identifier Número de Identificação da Segurança Social profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#SS  "Social Security Number"
-
-Profile:     NPIIdentifier
-Id:          npiIdentifier
-Parent:      Identifier
-Title:       "identifier Número Nacional do Profissional profile"
-Description:  "identifier Número Nacional do Profissional profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#NPI  "National Provider Identifier"
-
-Profile:     PPNIdentifier
-Id:          ppnIdentifier
-Parent:      Identifier
-Title:       "identifier Número do Passaporte profile"
-Description:  "identifier Número do Passaporte profile"
-
-* type.coding = http://terminology.hl7.org/CodeSystem/v2-0203#PPN  "Passport Number"
-
-
 Profile:     ETPractitioner
 Id:          ETPractitioner
 Parent:      Practitioner
@@ -625,8 +276,7 @@ Description: "O recurso Practitioner caracteriza de forma abrangente um profissi
 
 //falta o resto dos profissionais de saúde
 
-* identifier only MedicoIdentifier or DietistaIdentifier or FarmaceuticoIdentifier or EnfermeiroIdentifier or HomeopataIdentifier
-or FitoterapeutaIdentifier or DTIdentifier
+* identifier only PTPractitionerIdentifier
 
 
 
