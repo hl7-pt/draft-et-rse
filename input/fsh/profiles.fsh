@@ -1,7 +1,7 @@
 CodeSystem: SPMSidentifierTypeCS
 Id:         spms-identifierType-cs
-Title:     "Portuguese identifier type code system"
-Description: "Portuguese identifier type code system"
+Title:     "Code system para o tipo de identificador do profissional de saúde"
+Description:  "Code system para o tipo de identificador do profissional de saúde"
 
 * #NUTR-PT
     "nutricionista"
@@ -129,8 +129,8 @@ Description: "Portuguese identifier type code system"
 
 ValueSet: SPMSidentifierTypeVS
 Id: spms-identifierType-vs
-Title: "Portuguese identifier type value set"
-Description: "Portuguese identifier type value set"
+Title:  "ValueSet para o tipo de identificador do profissional de saúde"
+Description:  "ValueSet para o tipo de identificador do profissional de saúde"
 
 * include codes from system SPMSidentifierTypeCS
 * http://terminology.hl7.org/CodeSystem/v2-0203#PPN  "Passport Number"
@@ -152,17 +152,16 @@ Description: "Portuguese identifier type value set"
 Profile:     PTPractitionerIdentifier
 Id:          pt-practitioner-identifier
 Parent:      Identifier
-Title:       "identifier Profissional PT profile"
-Description:  "identifier Profissional PT profile"
+Title:       "Perfil Profissional de sáude PT"
+Description:   "Perfil Profissional de sáude PT"
 
 * type.coding from spms-identifierType-vs (required)
-
 * value 1..1 MS
 
 Extension: NationalityPractitioner
 Id:        nationality-practitioner
-Title:     "nationality-practitioner"
-Description: "nationality-practitioner"
+Title:     "Extension nationality-practitioner"
+Description: "Extension nationality-practitioner"
 * value[x] only CodeableConcept
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/nationality-practitioner"
 
@@ -170,8 +169,8 @@ Description: "nationality-practitioner"
 
 Extension: SpmsCounty
 Id:        spms-county
-Title:     "spms-county"
-Description: "spms-county"
+Title:     "Extension county"
+Description: "Extension county"
 * value[x] only CodeableConcept
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/county"
 
@@ -180,16 +179,16 @@ Description: "spms-county"
 
 Extension: Indicative
 Id:        indicative
-Title:     "indicative"
-Description: "indicative"
+Title:     "Extension indicative"
+Description: "Extension indicative"
 * value[x] only CodeableConcept
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/indicative"
 
 
 Extension: InactivePractitioner
 Id:       inactive-practitioner
-Title:     "inactive-practitioner"
-Description: "inactive-practitioner"
+Title:     "Extension inactive-practitioner"
+Description: "Extension inactive-practitioner"
 * value[x] only Period
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/inactive-practitioner"
 
@@ -200,28 +199,28 @@ Id:        address-type
 Title:    "address-type"
 Description: "address-type"
 * value[x] only Coding
-* ^url = "http://spms.min-saude.pt/fhir/iop/extensions/address-type"
+* ^url = "Extension http://spms.min-saude.pt/fhir/iop/extensions/address-type"
 
 Extension: Municipality
 Id:        municipality
-Title:    "municipality"
-Description: "municipality"
+Title:    "Extension municipality"
+Description: "Extension municipality"
 * value[x] only CodeableConcept
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/municipality"
 
 
 Extension: Parish
 Id:        parish
-Title:    "parish"
-Description: "parish"
+Title:    "Extension parish"
+Description: "Extension parish"
 * value[x] only CodeableConcept
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/parish"
 
 
 Extension: AddressNuts
 Id:        address-nuts
-Title:    "address-nuts"
-Description: "address-nuts"
+Title:    "Extension address-nuts"
+Description: "Extension address-nuts"
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/address-nuts"
 * extension contains
     nuts-I 1..1 MS and
@@ -234,8 +233,8 @@ Description: "address-nuts"
 
 Extension: Geolocation
 Id:        geolocation
-Title:    "geolocation"
-Description: "geolocation"
+Title:    "Extension geolocation"
+Description: "Extension geolocation"
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/geolocation"
 * extension contains
     longitude 1..1 MS and
@@ -249,8 +248,8 @@ Description: "geolocation"
 
 Extension: Proficiency
 Id:        proficiency
-Title:    "proficiency"
-Description: "proficiency"
+Title:    "Extension proficiency"
+Description: "Extension proficiency"
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/proficiency"
 * value[x] only CodeableConcept
 * ^context.type = http://hl7.org/fhir/extension-context-type#element
@@ -258,8 +257,8 @@ Description: "proficiency"
 
 Extension: Qualification
 Id:        qualification
-Title:    "qualification"
-Description: "qualification"
+Title:    "Extension qualification"
+Description: "qExtension ualification"
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/qualification"
 * extension contains
     status 1..1 MS and
@@ -272,10 +271,8 @@ Description: "qualification"
 Profile:     ETPractitioner
 Id:          ETPractitioner
 Parent:      Practitioner
-Title:       "Example Practitioner Profile"
+Title:       "Perfil Profissional de sáude PT - ET RSE"
 Description: "O recurso Practitioner caracteriza de forma abrangente um profissional de saúde. A definição transversal deste recurso permite, assim, a existência de uma visão única relativamente aos atributos que o caracterizam e que se afiguram como relevantes no âmbito da partilha de informação entre sistemas. O recurso Practitioner é utilizado para descrever um indivíduo que está direta ou indiretamente envolvido na prestação de cuidados de saúde. "
-
-//falta o resto dos profissionais de saúde
 
 * identifier only PTPractitionerIdentifier
 
