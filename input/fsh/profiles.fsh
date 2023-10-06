@@ -199,7 +199,7 @@ Id:        address-type
 Title:    "address-type"
 Description: "address-type"
 * value[x] only Coding
-* ^url = "Extension http://spms.min-saude.pt/fhir/iop/extensions/address-type"
+* ^url = "http://spms.min-saude.pt/fhir/iop/extensions/address-type"
 
 Extension: Municipality
 Id:        municipality
