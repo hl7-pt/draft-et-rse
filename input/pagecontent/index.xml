@@ -11,15 +11,13 @@
   <h3>Content</h3> <a name="content"> </a>
 	<p/>
 
-<p>O implementation Guide é uma ferramenta útil tanto para analista funcionais como para implementadores developers.</p>
+<p>O implementation Guide é uma ferramenta útil tanto para analista funcionais como para implementadores/developers.</p>
 <p></p>
-<p>Com este formato de publicação de especificações FHIR, conseguimos vizualizar de forma simples os recursos e a sua especificação adapatado ao panorama portugues (perfis) e como estes se interligam com a camada semântica (value Set e code systems).</p>
-<p>Adicionalmente é possivel adicionar exemplos onde a sua compliance é automaticamente validada e todos os implementadores podem fazer o mesmo com os seus exemplos criados através do uso do validador fhir e deste Implementatio Guide.</p>
+<p>Com este formato de publicação de especificações FHIR, conseguimos visualizar de forma simples os recursos e a sua especificação adaptada ao panorama português (perfis) e como estes se interligam com a camada semântica (value Set e code systems).</p>
+<p>Adicionalmente é possível adicionar exemplos onde a sua compliance é automaticamente validada e todos os implementadores podem fazer o mesmo com os seus exemplos criados através do uso do validador fhir e deste Implementation Guide.</p>
 <p>Pode-se também alinhar este e outros IGs com IGs internacionais como hl7eu-lab, IPS entre outros</p>
-<p>Finalmente, usando esta infraestrutura, pode ser promovida transparencia pelo que o código todo está <a href="https://github.com/hl7-pt/draft-et-rse/tree/main">aqui</a></p>
+<p>Finalmente, usando esta infraestrutura, pode ser promovida transparência visto que o código está <a href="https://github.com/hl7-pt/draft-et-rse/tree/main">aqui</a></p>
 
-<a name="navigation"> </a>
-<p>The top menu allows quick navigation to the different sections, and a <a href="toc.html">Table of Contents</a> is provided with the entire content of this Implementation Guide. (Be aware that some pages have multiple tabs).</p>
 <p></p>
 	<a name="ip"> </a>
 	<h3>Intellectual Property Considerations</h3>
