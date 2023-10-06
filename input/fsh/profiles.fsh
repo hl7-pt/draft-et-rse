@@ -196,8 +196,8 @@ Description: "Extension inactive-practitioner"
 
 Extension: AddressType
 Id:        address-type
-Title:    "address-type"
-Description: "address-type"
+Title:    "Extension address-type"
+Description: "Extension address-type"
 * value[x] only Coding
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/address-type"
 
@@ -258,7 +258,7 @@ Description: "Extension proficiency"
 Extension: Qualification
 Id:        qualification
 Title:    "Extension qualification"
-Description: "qExtension ualification"
+Description: "Extension qualification"
 * ^url = "http://spms.min-saude.pt/fhir/iop/extensions/qualification"
 * extension contains
     status 1..1 MS and
