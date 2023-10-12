@@ -152,8 +152,8 @@ Description:  "ValueSet para o tipo de identificador do profissional de saúde"
 Profile:     PTPractitionerIdentifier
 Id:          pt-practitioner-identifier
 Parent:      Identifier
-Title:       "Perfil Profissional de sáude PT"
-Description:   "Perfil Profissional de sáude PT"
+Title:       "Perfil Identificador de Profissional de sáude PT"
+Description:   "Perfil Identificador de Profissional de sáude PT"
 
 * type.coding from spms-identifierType-vs (required)
 * value 1..1 MS
